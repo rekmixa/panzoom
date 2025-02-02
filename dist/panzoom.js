@@ -810,6 +810,11 @@ function createPanZoom(domElement, options) {
 
   function onDoubleClick(e) {
     beforeDoubleClick(e);
+
+    if (options.zoomOnDoubleClick === false) {
+      return;
+    }
+
     var offset = getOffsetXY(e);
     if (transformOrigin) {
       // TODO: looks like this is duplicated in the file.
