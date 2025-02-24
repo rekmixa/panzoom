@@ -205,6 +205,10 @@ function createPanZoom(domElement, options) {
         x = Math.max(x, -(domElement.clientWidth * scale - domElement.clientWidth))
       }
     }
+    
+    if (options.transformXResolver !== undefined) {
+      transform.x = options.transformXResolver({ transform, scale, domElement })
+    }
 
     transform.x = x;
   }
@@ -219,6 +223,10 @@ function createPanZoom(domElement, options) {
       } else {
         y = Math.max(y, -(domElement.clientHeight * scale - domElement.clientHeight))
       }
+    }
+
+    if (options.transformYResolver !== undefined) {
+      transform.y = options.transformYResolver({ transform, scale, domElement })
     }
 
     transform.y = y;
