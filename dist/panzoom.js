@@ -191,6 +191,9 @@ function createPanZoom(domElement, options) {
   }
 
   function setTransformScale(scale) {
+    if (options.transformScaleResolver !== undefined) {
+      scale = options.transformScaleResolver({ scale, domElement})
+    }
     transform.scale = resolveTransformScale(scale);
   }
 
