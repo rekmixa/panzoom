@@ -207,7 +207,7 @@ function createPanZoom(domElement, options) {
     }
     
     if (options.transformXResolver !== undefined) {
-      transform.x = options.transformXResolver({ transform, scale, domElement })
+      x = options.transformXResolver({ x, scale, domElement })
     }
 
     transform.x = x;
@@ -226,7 +226,7 @@ function createPanZoom(domElement, options) {
     }
 
     if (options.transformYResolver !== undefined) {
-      transform.y = options.transformYResolver({ transform, scale, domElement })
+      y = options.transformYResolver({ y, scale, domElement })
     }
 
     transform.y = y;
